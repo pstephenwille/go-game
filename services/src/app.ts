@@ -1,7 +1,8 @@
 import { type FastifyPluginAsync, type FastifyServerOptions } from 'fastify'
-import supportPlugin, { type SupportPluginOptions } from '#/plugins/support'
-import sensiblePlugin from '#/plugins/sensible'
-import rootRoute from '#/routes/root'
+import supportPlugin, { type SupportPluginOptions } from '@/plugins/support'
+import sensiblePlugin from '@/plugins/sensible'
+// import {root, example } from '@/routes'
+import {apiRoutes} from '@/routes'
 
 // 1. AppOptions should extend FastifyServerOptions directly now.
 // No more Partial<AutoloadPluginOptions> needed.
@@ -26,7 +27,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
   fastify.register(sensiblePlugin)
 
   // Registers your root endpoints
-  fastify.register(rootRoute)
+  fastify.register(apiRoutes)
 
   // Place here your custom code!
 }

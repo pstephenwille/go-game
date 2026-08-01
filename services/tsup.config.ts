@@ -2,7 +2,7 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig({
   // 1. Entry point of your application
-  entry: ['src/app.ts'],
+  entry: ['src/server.ts'],
 
   // 2. Output configurations
   outDir: 'dist',
@@ -24,4 +24,5 @@ export default defineConfig({
 
   // Alternative fallback to mark ALL third-party dependencies as external:
   skipNodeModulesBundle: true,
+  noExternal: [/^@\//],
 });

@@ -8,7 +8,10 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "sourceMap": true,
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "@/*": ["src/*"],
+    }
   },
   "include": [
     "src/**/*"
