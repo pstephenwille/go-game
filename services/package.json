@@ -8,20 +8,22 @@
     "test": "test"
   },
   "scripts": {
-    "test": "npm run build:ts && tsc -p test/tsconfig.json && c8 node --test -r ts-node/register \"test/**/*.ts\"",
-    "start": "npm run build:ts && fastify start -l info dist/app.js",
-    "build:ts": "tsx",
-    "watch:ts": "tsx -w",
-    "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
-    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js"
+    "dev": "tsx watch ./src/server.ts",
+    "build": "tsup",
+    "start": "node dist/server.js",
+    "test": "npm run build:ts && tsc -p test/tsconfig.json && c8 node --test -r ts-node/register \"test/**/*.ts\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "imports": {
+    "#/*": "./src/*"
+  },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.585.0",
     "@aws-sdk/lib-dynamodb": "^3.585.0",
     "@fastify/autoload": "^6.0.0",
+    "@fastify/aws-lambda": "^6.4.0",
     "@fastify/sensible": "^6.0.0",
     "express": "^5.2.1",
     "fastify": "^5.0.0",
@@ -37,6 +39,7 @@
     "concurrently": "^9.0.0",
     "fastify-tsconfig": "^3.0.0",
     "ts-node": "^10.4.0",
+    "tsup": "^8.5.1",
     "tsx": "^4.23.1",
     "typescript": "~5.9.2"
   }

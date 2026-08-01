@@ -1,0 +1,20 @@
+services:
+  # 1. DynamoDB Local (Official AWS Image)
+  dynamodb-local:
+    image: amazon/dynamodb-local:2.5.3
+    container_name: local-dynamodb
+    ports:
+      - "8000:8000"
+    # Command ensures it runs in memory for fast local execution
+    command: "-jar DynamoDBLocal.jar -inMemory -sharedDb"
+    working_dir: /home/dynamodblocal
+
+  # 2. DocumentDB Emulation (Official MongoDB Image)
+  documentdb-local:
+    image: mongo:6.0
+    container_name: local-documentdb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin

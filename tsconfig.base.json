@@ -1,6 +1,7 @@
 {
   "$schema": "https://schemastore.org",
   "compilerOptions": {
+    "moduleResolution": "bundler",
     /* Target & Runtime Environments */
     "target": "ES2023",                  // Modern JavaScript baseline
 

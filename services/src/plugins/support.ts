@@ -8,7 +8,7 @@ export interface SupportPluginOptions {
 // to export the decorators to the outer scope
 export default fp<SupportPluginOptions>(async (fastify, _opts) => {
   fastify.decorate('someSupport', function () {
-    return 'hugs'
+    return 'hugs and kisses'
   })
 })
 
