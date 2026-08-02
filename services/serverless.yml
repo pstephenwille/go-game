@@ -38,17 +38,39 @@ functions:
     handler: src/handler.handler
     events:
       - httpApi: "*"
+build:
+  esbuild:
+    bundle: true
+    format: esm
+    minify: ${self:custom.isProd.${opt.stage}, false}
+    # Enable sourcemaps for 'dev' to debug easily, disable for 'prod' to save space
+    sourcemap: ${self:custom.isDev.${opt.stage}, true}
+    # 👇 This injects a standard require wrapper into the ESM build file
+    banner:
+      js: 'import { createRequire } from "node:module"; const require = createRequire(import.meta.url);'
+
+  isProd:
+    prod: true
+    dev: false
+  isDev:
+    prod: false
+    dev: true
+
 
 resources:
   Resources:
     UsersTable:
       Type: AWS::DynamoDB::Table
       Properties:
+        TableName: HelloWorldTable
         AttributeDefinitions:
-          - AttributeName: userId
+          - AttributeName: id
             AttributeType: S
         KeySchema:
-          - AttributeName: userId
+          - AttributeName: id
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
-        TableName: ${param:tableName}
+
+
+plugins:
+  - serverless-offline

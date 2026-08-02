@@ -14,7 +14,7 @@ export default defineConfig({
   bundle: true,            // Compiles internal code files into a single output file
   minify: true,            // Strips whitespace and shrinks variables for production
   sourcemap: true,         // Generates maps so stack traces map back to your raw .ts files
-
+  shims:true,
   // 4. Critical Backend Rule: Protect node_modules
   // Automatically excludes dependencies listed in package.json from being mangled inside the bundle
   external: [

@@ -8,6 +8,7 @@
     "test": "test"
   },
   "scripts": {
+    "sls": "serverless offline start --reloadHandler",
     "dev": "tsx watch ./src/server.ts",
     "build": "tsup",
     "start": "node dist/server.js",
@@ -35,6 +36,8 @@
     "c8": "^11.0.0",
     "concurrently": "^9.0.0",
     "fastify-tsconfig": "^3.0.0",
+    "install": "^0.13.0",
+    "serverless-offline": "^14.7.4",
     "ts-node": "^10.4.0",
     "tsup": "^8.5.1",
     "tsx": "^4.23.1",
