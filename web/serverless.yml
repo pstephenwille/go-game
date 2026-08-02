@@ -1,0 +1,15 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: swille
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: go-game-web
+
+provider:
+  name: aws
+
+plugins:
+  - serverless-lift
+
+constructs:
+  web-bundle:
+    type: static-website
+    path: dist/

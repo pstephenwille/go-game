@@ -1,0 +1,21 @@
+{
+  "name": "services",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "This project was bootstrapped with Fastify-CLI.",
+  "main": "app.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "sls": "serverless offline start --reloadHandler",
+    "dev": "tsx watch ./src/server.ts",
+    "build": "tsup",
+    "start": "node dist/server.js",
+    "test": "npm run build:ts && tsc -p test/tsconfig.json && c8 node --test -r ts-node/register \"test/**/*.ts\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
