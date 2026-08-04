@@ -2,13 +2,14 @@ import { type FastifyPluginAsync, type FastifyServerOptions } from 'fastify'
 import supportPlugin, { type SupportPluginOptions } from '@/plugins/support'
 import sensiblePlugin from '@/plugins/sensible'
 // import {root, example } from '@/routes'
-import {apiRoutes} from '@/routes'
+import { apiRoutes } from '@/routes'
 
 // 1. AppOptions should extend FastifyServerOptions directly now.
 // No more Partial<AutoloadPluginOptions> needed.
-export interface AppOptions extends FastifyServerOptions {
+interface AppOptions extends FastifyServerOptions {
   // Add any custom global application configuration properties here if needed
 }
+
 
 // Pass --options via CLI arguments in command to enable these options.
 const options: AppOptions = {}

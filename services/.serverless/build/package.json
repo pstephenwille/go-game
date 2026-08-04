@@ -8,11 +8,8 @@
     "test": "test"
   },
   "scripts": {
-    "sls": "serverless offline start --reloadHandler",
-    "dev": "tsx watch ./src/server.ts",
-    "build": "tsup",
-    "start": "node dist/server.js",
-    "test": "npm run build:ts && tsc -p test/tsconfig.json && c8 node --test -r ts-node/register \"test/**/*.ts\""
+    "sls-start": "serverless offline start --reloadHandler",
+    "sls-ship": "serverless deploy"
   },
   "keywords": [],
   "author": "",

@@ -47146,7 +47146,7 @@ var apiRoutes = async (fastify, _options) => {
 
 // src/app.ts
 var options = {};
-var app = async (fastify, opts) => {
+var app = async (fastify, _opts) => {
   const pluginOptions = {};
   fastify.register(support_default, pluginOptions);
   fastify.register(sensible_default);

@@ -161,7 +161,7 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-us-east-1-0872344e-6e0c",
-                  "S3Key": "serverless/go-game-services/dev/1785684455916-2026-08-02T15:27:35.916Z/go-game-services.zip"
+                  "S3Key": "serverless/go-game-services/dev/1785693214219-2026-08-02T17:53:34.219Z/go-game-services.zip"
                 },
                 "Handler": "src/handler.handler",
                 "Runtime": "nodejs24.x",
@@ -188,14 +188,14 @@
                 "ApiLogGroup"
               ]
             },
-            "ApiLambdaVersionoxI6b9qBH3kX4NuJLoZi7zgG82YNrAffbjSirJybnN4": {
+            "ApiLambdaVersioncfVmSXNrnecqo7sb0gPsuYVhskwswSg8DQQUMMuJuc": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "ApiLambdaFunction"
                 },
-                "CodeSha256": "jD8frXhuhtqZZ0CHRFfOI7CIVBzyy1UB0xSKuRzMUWo="
+                "CodeSha256": "pQYK8nXuN9l1bcs1xGA8kTg9h/TLuVLOC+fDMRAkn1w="
               }
             },
             "HttpApi": {
@@ -323,7 +323,7 @@
             "ApiLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "ApiLambdaVersionoxI6b9qBH3kX4NuJLoZi7zgG82YNrAffbjSirJybnN4"
+                "Ref": "ApiLambdaVersioncfVmSXNrnecqo7sb0gPsuYVhskwswSg8DQQUMMuJuc"
               },
               "Export": {
                 "Name": "sls-go-game-services-dev-ApiLambdaFunctionQualifiedArn"
@@ -385,7 +385,7 @@
           "timeout": 6,
           "runtime": "nodejs24.x",
           "vpc": {},
-          "versionLogicalId": "ApiLambdaVersionoxI6b9qBH3kX4NuJLoZi7zgG82YNrAffbjSirJybnN4"
+          "versionLogicalId": "ApiLambdaVersioncfVmSXNrnecqo7sb0gPsuYVhskwswSg8DQQUMMuJuc"
         }
       },
       "build": {
@@ -582,7 +582,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-us-east-1-0872344e-6e0c",
-                "S3Key": "serverless/go-game-services/dev/1785684455916-2026-08-02T15:27:35.916Z/go-game-services.zip"
+                "S3Key": "serverless/go-game-services/dev/1785693214219-2026-08-02T17:53:34.219Z/go-game-services.zip"
               },
               "Handler": "src/handler.handler",
               "Runtime": "nodejs24.x",
@@ -609,14 +609,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersionoxI6b9qBH3kX4NuJLoZi7zgG82YNrAffbjSirJybnN4": {
+          "ApiLambdaVersioncfVmSXNrnecqo7sb0gPsuYVhskwswSg8DQQUMMuJuc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "jD8frXhuhtqZZ0CHRFfOI7CIVBzyy1UB0xSKuRzMUWo="
+              "CodeSha256": "pQYK8nXuN9l1bcs1xGA8kTg9h/TLuVLOC+fDMRAkn1w="
             }
           },
           "HttpApi": {
@@ -744,7 +744,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionoxI6b9qBH3kX4NuJLoZi7zgG82YNrAffbjSirJybnN4"
+              "Ref": "ApiLambdaVersioncfVmSXNrnecqo7sb0gPsuYVhskwswSg8DQQUMMuJuc"
             },
             "Export": {
               "Name": "sls-go-game-services-dev-ApiLambdaFunctionQualifiedArn"
@@ -813,12 +813,12 @@
     "serviceProviderAwsCfStackName": "go-game-services-dev",
     "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:512808912517:stack/go-game-services-dev/b2e43c60-8e86-11f1-abda-0ee6fd9cf47f",
     "serviceProviderAwsCfStackCreated": "2026-08-02T15:27:40.455Z",
-    "serviceProviderAwsCfStackUpdated": null,
-    "serviceProviderAwsCfStackStatus": "CREATE_COMPLETE",
+    "serviceProviderAwsCfStackUpdated": "2026-08-02T17:23:42.962Z",
+    "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "ApiLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:us-east-1:512808912517:function:go-game-services-dev-api:1",
+        "OutputValue": "arn:aws:lambda:us-east-1:512808912517:function:go-game-services-dev-api:2",
         "Description": "Current Lambda function version",
         "ExportName": "sls-go-game-services-dev-ApiLambdaFunctionQualifiedArn"
       },
@@ -952,7 +952,7 @@
           "Properties": {
             "Code": {
               "S3Bucket": "serverless-framework-deployments-us-east-1-0872344e-6e0c",
-              "S3Key": "serverless/go-game-services/dev/1785684455916-2026-08-02T15:27:35.916Z/go-game-services.zip"
+              "S3Key": "serverless/go-game-services/dev/1785693214219-2026-08-02T17:53:34.219Z/go-game-services.zip"
             },
             "Handler": "src/handler.handler",
             "Runtime": "nodejs24.x",
@@ -979,14 +979,14 @@
             "ApiLogGroup"
           ]
         },
-        "ApiLambdaVersionoxI6b9qBH3kX4NuJLoZi7zgG82YNrAffbjSirJybnN4": {
+        "ApiLambdaVersioncfVmSXNrnecqo7sb0gPsuYVhskwswSg8DQQUMMuJuc": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "ApiLambdaFunction"
             },
-            "CodeSha256": "jD8frXhuhtqZZ0CHRFfOI7CIVBzyy1UB0xSKuRzMUWo="
+            "CodeSha256": "pQYK8nXuN9l1bcs1xGA8kTg9h/TLuVLOC+fDMRAkn1w="
           }
         },
         "HttpApi": {
@@ -1114,7 +1114,7 @@
         "ApiLambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "ApiLambdaVersionoxI6b9qBH3kX4NuJLoZi7zgG82YNrAffbjSirJybnN4"
+            "Ref": "ApiLambdaVersioncfVmSXNrnecqo7sb0gPsuYVhskwswSg8DQQUMMuJuc"
           },
           "Export": {
             "Name": "sls-go-game-services-dev-ApiLambdaFunctionQualifiedArn"
