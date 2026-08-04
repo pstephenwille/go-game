@@ -3,9 +3,6 @@ packages:
   - 'web'
 
 allowBuilds:
-  esbuild: set this to true or false
-  serverless: set this to true or false
+  esbuild: true
+  serverless: true
 
-allowBuilds:
-  - esbuild
-  - serverless
