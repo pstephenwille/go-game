@@ -1,9 +1,16 @@
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { ScanCommand, DeleteItemCommand } from "@aws-sdk/client-dynamodb";
 import { dynamoClient } from "@/db.config";
-import { app as buildApp } from "@/app";
+import { app , options } from "@/app";
+import Fastify from 'fastify';
 
-const TABLE_NAME = "UsersTable";
+
+const server = Fastify({
+  logger: false,
+  ...options
+})
+
+const TABLE_NAME = "Users";
 
 /**
  * Industry-norm helper to truncate tables when working with live containers.
@@ -27,17 +34,21 @@ async function clearTable() {
   await Promise.all(deletePromises);
 }
 
-describe("POST & GET /users (Local Container Integration)", () => {
+describe("POST & GET /index (Local Container Integration)", () => {
   // Wipe the Docker database clean before every single test run
   beforeEach(async () => {
     await clearTable();
+    await server.register(app)
   });
 
-  it("should create a new user, validate schemas, and persist to Docker DynamoDB", async () => {
-    const app = await buildApp();
+  afterEach(async()=>{
+    await server.close()
+  })
+
+  it.only("should create a new user, validate schemas, and persist to Docker DynamoDB", async () => {
 
     // 1. Inject a POST request into the Fastify engine
-    const postResponse = await app.inject({
+    const postResponse = await server.inject({
       method: "POST",
       url: "/users",
       payload: {
@@ -54,7 +65,7 @@ describe("POST & GET /users (Local Container Integration)", () => {
     expect(createdUser.name).toBe("Alex Dev");
 
     // 3. Inject a subsequent GET request to ensure read-after-write consistency
-    const getResponse = await app.inject({
+    const getResponse = await server.inject({
       method: "GET",
       url: `/users/${createdUser.id}`
     });
@@ -64,10 +75,8 @@ describe("POST & GET /users (Local Container Integration)", () => {
   });
 
   it("should return a 400 bad request if payload fails Zod schema verification", async () => {
-    const app = await buildApp();
-
     // Inject an invalid payload (missing mandatory email)
-    const response = await app.inject({
+    const response = await server.inject({
       method: "POST",
       url: "/users",
       payload: {

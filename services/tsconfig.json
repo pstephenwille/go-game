@@ -3,6 +3,7 @@
     "../tsconfig.base.json"
   ],
   "compilerOptions": {
+    "strict": false,
     "baseUrl": ".",
     "outDir": "./dist",
     "rootDir": ".",

@@ -8,7 +8,16 @@ service: go-game-services
 stages:
   default:
     params:
-      tableName: "users-table-${sls:stage}"
+      tableName: "index-table-${sls:stage}"
+
+custom:
+  serverless-dynamodb:
+    stages:
+      - dev
+    start:
+      noStart: true # Tells the plugin not to spawn its own Docker instance
+      port: 8000
+      migrate: true
 
 provider:
   name: aws
@@ -62,13 +71,24 @@ resources:
     UsersTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: HelloWorldTable
+        TableName: ${self:provider.environment.USERS_TABLE}
+        # Only define the keys and index attributes here
         AttributeDefinitions:
-          - AttributeName: id
+          - AttributeName: userId
+            AttributeType: S
+          - AttributeName: email
             AttributeType: S
         KeySchema:
-          - AttributeName: id
+          - AttributeName: userId
             KeyType: HASH
+        # Define Global Secondary Indexes if needed
+        GlobalSecondaryIndexes:
+          - IndexName: EmailIndex
+            KeySchema:
+              - AttributeName: email
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
         BillingMode: PAY_PER_REQUEST
 
 

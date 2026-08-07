@@ -11,7 +11,8 @@ interface AppOptions extends FastifyServerOptions {
 }
 
 
-// Pass --options via CLI arguments in command to enable these options.
+
+// Pass --options via CLI arguments in command to enable these options;;
 const options: AppOptions = {}
 
 const app: FastifyPluginAsync<AppOptions> = async (
@@ -27,7 +28,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
   // Registers your wrapped sensible plugin
   fastify.register(sensiblePlugin)
 
-  // Registers your root endpoints
+  // Registers your root endpoints;
   fastify.register(apiRoutes)
 
   // Place here your custom code!
