@@ -8,11 +8,11 @@
     "test": "test"
   },
   "scripts": {
-    "dev": "serverless offline start --reloadHandler",
-    "ship": "serverless deploy",
-    "infra:up": "docker compose up -d",
-    "test-local": "npm run infra:up && vitest run --project local-container",
-    "test-e2e": "vitest run --project cloud-e2e"
+      "dev": "serverless offline start --reloadHandler",
+      "ship": "serverless deploy",
+      "infra:up": "docker compose up -d",
+      "test-local": "AWS_ACCESS_KEY_ID='' npm run infra:up && vitest run --mode dev --project local-container",
+      "test-e2e": "vitest run --mode dev  --project cloud-e2e"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +34,7 @@
     "serverless-offline": "^14.7.4",
     "tsx": "^4.23.4",
     "typescript": "~5.9.2",
+    "vite": "^8.0.0",
     "vite-tsconfig-paths": "^6.1.1",
     "vitest": "^4.1.10"
   }

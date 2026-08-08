@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { ScanCommand, DeleteItemCommand } from "@aws-sdk/client-dynamodb";
-import { dynamoClient } from "@/db.config";
+import { dynamoClient } from "@config/dynamo";
 import { app , options } from "@/app";
 import Fastify from 'fastify';
 
@@ -10,7 +10,7 @@ const server = Fastify({
   ...options
 })
 
-const TABLE_NAME = "Users";
+const TABLE_NAME = "Users-dev";
 
 /**
  * Industry-norm helper to truncate tables when working with live containers.

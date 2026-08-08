@@ -11,6 +11,7 @@
     "noEmit": true,
     "paths": {
       "@/*": ["src/*"],
+      "@config/*": ["config/*"],
     }
   },
   "include": [
